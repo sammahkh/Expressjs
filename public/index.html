@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todos</title>
+  <script>
+    fetch('/lisOfTodos')
+      .then(response => response.json())
+      .then(data => {
+        const todoList = document.getElementById('todo-list');
+        data.forEach(todo => {
+          const listItem = document.createElement('li');
+          listItem.textContent = todo.title;
+          lisOfTodos.appendChild(listItem);
+        });
+      });
+  </script>
+</head>
+<body>
+  <h1>Todos</h1>
+  <ul id="todo-list"></ul>
+  <img src="/img.png" alt="Server Image" />
+</body>
+</html>
+
